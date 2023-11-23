@@ -12,6 +12,10 @@ public class PatientRecord {
         patients.add(p);
     }
 
+    public ArrayList<Patient> getPatients() {
+        return patients;
+    }
+
     public static synchronized PatientRecord getRecord(){
         if(patientRecord==null){
             patientRecord = new PatientRecord();
