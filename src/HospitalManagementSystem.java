@@ -6,16 +6,24 @@ public class HospitalManagementSystem implements ProxyInterface{
     @Override
     public void connectToSystem(String name) {
         Scanner sc = new Scanner(System.in);
-        int option = 0;
+        int option;
         int age;
+        int flag2 = 0;
         String choice, choice1, patient_name, department_name, doctor_name, req_name, req_type;
         String symptom;
-        if(name.equalsIgnoreCase("ABC")){
+        for(Patient p : database.patientRecord.getPatients()){
+            if(p.getName().equalsIgnoreCase(name)){
+                flag2 = 1;
+                break;
+            }
+        }
+        if(flag2 == 1){
             do{
                 boolean flag = false;
                 boolean flag1 = false;
                 System.out.println("--------- Welcome " + name + " ------------");
-                System.out.println("1. Add a new Patient\t2.See availability of rooms");
+                System.out.println("1. Add a new Patient");
+                System.out.println("2. See availability of rooms");
                 System.out.println("3. Display Patient Info");
 
                 System.out.print("Select an option : ");
@@ -79,7 +87,7 @@ public class HospitalManagementSystem implements ProxyInterface{
                     }
                 }
                 else if(option == 3){
-                    System.out.println("Enter Patient name : ");
+                    System.out.print("Enter Patient name : ");
                     patient_name = sc.next();
                     for(Patient p : database.patientRecord.getPatients()){
                         if(p.getName().equalsIgnoreCase(patient_name)){
@@ -97,7 +105,7 @@ public class HospitalManagementSystem implements ProxyInterface{
 
             }while(!choice1.equalsIgnoreCase("NO"));
         }
-        else {
+        else if(database.admins.contains(name)){
             do {
                 System.out.println("--------- Welcome " + name + " ------------");
                 System.out.println("1. Display Info");
@@ -113,7 +121,6 @@ public class HospitalManagementSystem implements ProxyInterface{
                         }
                     }
                 }
-
                 else if (option==2){
                     System.out.print("Give Request type : ");
                     req_type = sc.next();

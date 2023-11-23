@@ -7,15 +7,16 @@ public class Database {
     PatientRecord patientRecord = PatientRecord.getRecord();
     Handler handler;
     ArrayList<String> hospitalized = new ArrayList<>();
+    ArrayList<String> admins = new ArrayList<>();
 
     public Database() {
         // Infrastructure
-        Room room1 = new Room("101", "available");
-        Room room2 = new Room("102", "available");
-        Room room3 = new Room("103", "available");
-        Room room4 = new Room("201", "available");
-        Room room5 = new Room("202", "available");
-        Room room6 = new Room("203", "available");
+        Room room1 = new Room("101", "Available");
+        Room room2 = new Room("102", "Available");
+        Room room3 = new Room("103", "Available");
+        Room room4 = new Room("201", "Available");
+        Room room5 = new Room("202", "Available");
+        Room room6 = new Room("203", "Available");
 
         rooms.add(room1);
         rooms.add(room2);
@@ -66,12 +67,7 @@ public class Database {
         hospitalized.add("Disease 3");
         hospitalized.add("Disease 4");
 
-    }
-
-    public void addRoom(Room room){
-        rooms.add(room);
-    }
-    public void addDepartment(Department department){
-        departments.add(department);
+        //Admins
+        admins.add("Admin");
     }
 }
