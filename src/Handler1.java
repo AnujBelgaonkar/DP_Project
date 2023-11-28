@@ -5,7 +5,7 @@ public class Handler1 extends Handler{
     }
     @Override
     public void handleRequest(Request req) {
-        if(req.getType().equalsIgnoreCase("ABC")){
+        if(req.getType().equalsIgnoreCase("ADMIT")){
             System.out.println("Request handled by handler 1");
         }
         else next.handleRequest(req);
