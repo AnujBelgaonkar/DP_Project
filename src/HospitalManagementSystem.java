@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HospitalManagementSystem implements ProxyInterface{
-    Database database = new Database();
+    private final Database database = new Database();
     @Override
     public void connectToSystem(String name) {
         Scanner sc = new Scanner(System.in);
@@ -17,7 +17,7 @@ public class HospitalManagementSystem implements ProxyInterface{
                 break;
             }
         }
-        if(flag2 == 1){
+        if(database.admins.contains(name)){
             do{
                 boolean flag = false;
                 boolean flag1 = false;
@@ -25,6 +25,7 @@ public class HospitalManagementSystem implements ProxyInterface{
                 System.out.println("1. Add a new Patient");
                 System.out.println("2. See availability of rooms");
                 System.out.println("3. Display Patient Info");
+                System.out.println("4. Discharge a Patient.");
 
                 System.out.print("Select an option : ");
                 option = sc.nextInt();
@@ -100,12 +101,28 @@ public class HospitalManagementSystem implements ProxyInterface{
                         System.out.println("Sorry No Patient is present in the Hospital.");
                     }
                 }
+                else if (option==4){
+                    System.out.print("Enter name of the patient : ");
+                    patient_name = sc.next();
+                    for(Patient p : database.patientRecord.getPatients()){
+                        if(p.getName().equalsIgnoreCase(patient_name)){
+                            p.getRoom().setAvailabilityStatus("Available");
+                            p.setRoom(null);
+                            System.out.println("Patient " + p.getName() + " successfully discharged.");
+                            flag1 = true;
+                            break;
+                        }
+                    }
+                    if (!flag1) {
+                        System.out.println("Sorry No Patient is present in the Hospital.");
+                    }
+                }
                 System.out.print("Do you want to do something more ? (Yes/No)");
                 choice1 = sc.next();
 
             }while(!choice1.equalsIgnoreCase("NO"));
         }
-        else if(database.admins.contains(name)){
+        else if(flag2==1){
             do {
                 System.out.println("--------- Welcome " + name + " ------------");
                 System.out.println("1. Display Info");
@@ -131,6 +148,7 @@ public class HospitalManagementSystem implements ProxyInterface{
                         if(p.getName().equalsIgnoreCase(name)){
                             p.setRequest(new Request(req_type, req_name));
                             database.handler.handleRequest(p.getRequest());
+                            break;
                         }
                     }
                 }

@@ -34,7 +34,7 @@ public class Database {
         floor2.addComponent(room5);
         floor2.addComponent(room6);
 
-        Department department1 = new Department("ABC");
+        Department department1 = new Department("Neurological");
         department1.addComponent(floor1);
         department1.addComponent(floor2);
 
@@ -53,21 +53,43 @@ public class Database {
         doctors.add(doctor2);
 
         // Patients already hospitalized in the Hospital
+        // Patient - Anuj
         ArrayList<String> symptoms1 = new ArrayList<>();
         symptoms1.add("Fever");
         symptoms1.add("Cough");
-        Patient p = new Patient("XYZ", 12,symptoms1);
+        Patient p = new Patient("Anuj", 12,symptoms1);
         room1.setPatient(p);
         p.setRoom(room1);
         patientRecord.addPatient(p);
 
+        symptoms1.clear();
+        // Patient - "Poushik"
+        symptoms1.add("Headache");
+        symptoms1.add("Cough");
+        Patient p1 = new Patient("Poushik", 12,symptoms1);
+        room2.setPatient(p1);
+        p1.setRoom(room2);
+        patientRecord.addPatient(p1);
+
+        symptoms1.clear();
+        // Patient - "Ashutosh"
+        symptoms1.add("Fever");
+        symptoms1.add("Dengue");
+        Patient p2 = new Patient("Ashutosh", 12,symptoms1);
+        room3.setPatient(p2);
+        p2.setRoom(room3);
+        patientRecord.addPatient(p2);
+
+
         // Severe diseases
-        hospitalized.add("Dengue");
-        hospitalized.add("Disease 2");
-        hospitalized.add("Disease 3");
-        hospitalized.add("Disease 4");
+        hospitalized.add("Cancer");
+        hospitalized.add("Cholera");
+        hospitalized.add("Typhoid");
+        hospitalized.add("HeartAttack");
 
         //Admins
-        admins.add("Admin");
+        admins.add("Admin1");
+        admins.add("Admin2");
+        admins.add("Admin3");
     }
 }

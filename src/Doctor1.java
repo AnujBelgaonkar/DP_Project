@@ -9,7 +9,7 @@ public class Doctor1 extends Visitor {
     public void visit(Patient p) {
         ArrayList<String> diagnosis = new ArrayList<>();
         System.out.println("-------- Diagnosis ------------");
-        diagnosis.add("Dengue1234");
+        diagnosis.add("Dengue");
         diagnosis.add("Diagnosis 1");
         diagnosis.add("Diagnosis 2");
         diagnosis.add("Diagnosis 3");

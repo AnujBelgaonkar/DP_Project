@@ -34,6 +34,10 @@ public class Patient{
     public ArrayList<String> getDiagnosis() {
         return diagnosis;
     }
+
+    public Room getRoom() {
+        return room;
+    }
     public void setRequest(Request request) {
         this.request = request;
     }
@@ -42,7 +46,7 @@ public class Patient{
     }
 
     public void setRoom(Room room) {
-        room.setAvailabilityStatus("Unavailable");
+        if(room!=null) room.setAvailabilityStatus("Unavailable");
         this.room = room;
     }
 }
