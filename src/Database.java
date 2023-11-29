@@ -34,7 +34,7 @@ public class Database {
         floor2.addComponent(room5);
         floor2.addComponent(room6);
 
-        Department department1 = new Department("ABC");
+        Department department1 = new Department("General");
         department1.addComponent(floor1);
         department1.addComponent(floor2);
 
@@ -56,7 +56,7 @@ public class Database {
         ArrayList<String> symptoms1 = new ArrayList<>();
         symptoms1.add("Fever");
         symptoms1.add("Cough");
-        Patient p = new Patient("XYZ", 12,symptoms1);
+        Patient p = new Patient("Poushik", 12,symptoms1);
         room1.setPatient(p);
         p.setRoom(room1);
         patientRecord.addPatient(p);
