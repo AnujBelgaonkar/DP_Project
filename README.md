@@ -6,6 +6,9 @@ The Hospital Management System is a Java-based application designed to streamlin
 
 ## Design Patterns
 
+![Dp - Flowchart](https://github.com/Ashutowsh/Hospital-Management-System/assets/117370065/c9b321cb-da50-4ba7-8f93-401d20a74b76)
+
+
 ### Singleton Design Pattern for Patient Records
 - Ensures a single instance of the patient records database.
 - Maintains a centralized source of information for each patient.
